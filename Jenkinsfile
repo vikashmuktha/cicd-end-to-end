@@ -1,7 +1,10 @@
 pipeline {
     
     agent any 
-    
+    tools{
+    //Global Tool Configuration
+    maven 'Maven3.9.1'
+    }
     environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
     }
@@ -14,6 +17,12 @@ pipeline {
                 url: 'https://github.com/vikashmuktha/cicd-end-to-end.git',
                 branch: 'main'
            }
+        }
+        stage('Unit Test'){
+            steps{
+                sh '''mvn test
+                '''
+            }
         }
         /*
         stage('Build Docker'){

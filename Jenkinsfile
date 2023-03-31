@@ -10,12 +10,12 @@ pipeline {
         
         stage('Checkout'){
            steps {
-                git credentialsId: 'f87a34a8-0e09-45e7-b9cf-6dc68feac670', 
-                url: 'https://github.com/iam-veeramalla/cicd-end-to-end',
+                git credentialsId: 'git_creds', 
+                url: 'https://github.com/vikashmuktha/cicd-end-to-end.git',
                 branch: 'main'
            }
         }
-
+        /*
         stage('Build Docker'){
             steps{
                 script{
@@ -63,5 +63,6 @@ pipeline {
                 }
             }
         }
+     */   
     }
 }
